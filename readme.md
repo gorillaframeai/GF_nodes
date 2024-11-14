@@ -18,9 +18,9 @@ ComfyUI/
 │   	├── config.json
 │   	├── pytorch_model.bin (≈1.5GB)
 │   	└── other files...
-│└── GF_nodes/
-		└── gfrbmg2.py # Node implementation
-		└── init.py # Node implementation
+│	└── GF_nodes/
+│		└── gfrbmg2.py # Node implementation
+│		└── init.py # Node implementation
 		
 Installation Steps
 Navigate to your ComfyUI/models directory
