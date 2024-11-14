@@ -41,7 +41,6 @@ ComfyUI/
    Navigate to the models directory and clone the model repository:
    ```bash
    cd ComfyUI/models
-   mkdir RMBG-2.0
    cd RMBG-2.0
    git clone https://huggingface.co/briaai/RMBG-2.0 .
    ```
