@@ -22,7 +22,7 @@ ComfyUI/
 ├── models/
 │   └── RMBG-2.0/  # Model files
 │       ├── config.json
-│       ├── pytorch_model.bin (≈1.5GB)
+│       ├── model.safetensors (≈1.5GB)
 │       └── other files...
 └── custom_nodes/
     └── GF_nodes/
