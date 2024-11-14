@@ -5,7 +5,7 @@ This custom node for ComfyUI provides advanced background removal capabilities u
 **Node name:** GFrbmg2  
 **Author:** GorillaFrame
 
-<img src="images/example.png" width="1724" height="1080" alt="Alt text">
+<img src="images/example.png" style="max-width: 100%" alt="Alt text">
 
 
 ## Features
