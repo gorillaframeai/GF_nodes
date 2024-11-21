@@ -47,11 +47,6 @@ ComfyUI/
    git clone https://huggingface.co/briaai/RMBG-2.0 .
    ```
 
-   If Git LFS is not installed, run:
-   ```bash
-   git lfs install
-   git lfs pull
-   ```
 
 ## Requirements
 - CUDA-compatible GPU (recommended)
