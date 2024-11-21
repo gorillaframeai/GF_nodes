@@ -44,7 +44,6 @@ ComfyUI/
    Navigate to the models directory and clone the model repository:
    ```bash
    cd ComfyUI/models
-   cd RMBG-2.0
    git clone https://huggingface.co/briaai/RMBG-2.0 .
    ```
 
@@ -55,8 +54,6 @@ ComfyUI/
    ```
 
 ## Requirements
-- Git LFS (for model download)
-- Sufficient disk space (≈2GB)
 - CUDA-compatible GPU (recommended)
 
 ## Usage
