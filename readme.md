@@ -36,7 +36,7 @@ ComfyUI/
    Navigate to your ComfyUI directory and set up the necessary folders:
    ```bash
    cd ComfyUI/custom_nodes
-   mkdir GF_nodes
+   git clone https://github.com/gorillaframeai/GF_nodes.git
    ```
 
 2. **Download the RMBG-2.0 Model:**
