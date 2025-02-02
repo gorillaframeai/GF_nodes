@@ -13,7 +13,7 @@ import BEN2
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-# Добавляем путь к моделям ComfyUI
+# Добавляем путь к моделям ComfyUI!
 folder_paths.add_model_folder_path("rmbg_models", os.path.join(folder_paths.models_dir, "RMBG", "RMBG-2.0"))
 folder_paths.add_model_folder_path("ben2_models", os.path.join(folder_paths.models_dir, "RMBG", "BEN2"))
 
