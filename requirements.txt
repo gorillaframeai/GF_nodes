@@ -1,6 +1,8 @@
-huggingface_hub
-Image
+torch
+torchvision
 numpy
-einops
+opencv-python
 Pillow
+transformers
+einops
 timm
