@@ -1,8 +1,3 @@
-torch
-torchvision
-numpy
-opencv-python
 Pillow
-transformers
 einops
 timm
