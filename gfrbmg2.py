@@ -1,7 +1,6 @@
 import sys
 import os
 
-
 import torch
 import folder_paths
 from PIL import Image
@@ -11,6 +10,7 @@ from torchvision.transforms.functional import normalize
 import numpy as np
 import cv2
 import subprocess
+import torch.nn.functional as F  # Добавьте эту строку
 
 script_directory = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(script_directory)
