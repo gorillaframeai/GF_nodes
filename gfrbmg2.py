@@ -1,6 +1,6 @@
 import sys
 import os
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 
 import torch
 import folder_paths
@@ -11,6 +11,9 @@ from torchvision.transforms.functional import normalize
 import numpy as np
 import cv2
 import subprocess
+
+script_directory = os.path.dirname(os.path.realpath(__file__))
+sys.path.append(script_directory)
 import BEN2
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
