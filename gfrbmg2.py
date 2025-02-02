@@ -1,5 +1,8 @@
-import torch, os
-import torch.nn.functional as F
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+import torch
 import folder_paths
 from PIL import Image
 from transformers import AutoModelForImageSegmentation
@@ -7,7 +10,6 @@ from torchvision import transforms
 from torchvision.transforms.functional import normalize
 import numpy as np
 import cv2
-import sys
 import subprocess
 import BEN2
 
