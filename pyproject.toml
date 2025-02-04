@@ -1,0 +1,18 @@
+[project]
+name = "GFrbmg2"
+description = "A project for background removal using GFrbmg2 and BEN2 models"
+version = "1.0.0"
+license = { text = "MIT" }
+
+[project.dependencies]
+einops = "*"
+timm = "*"
+Pillow = "*"
+
+[project.urls]
+Repository = "https://github.com/gorillaframeai/GF_nodes"
+
+[tool.comfy]
+PublisherId = "GorillaFrame"
+DisplayName = "GF Remove Background 2.0"
+Icon = "🐵"
