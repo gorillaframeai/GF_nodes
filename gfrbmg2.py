@@ -49,6 +49,7 @@ class GFrbmg2:
                 "image": ("IMAGE",),
                 "model_choice": (["RMBG-2.0", "BEN2"],),
                 "invert_mask": ("BOOLEAN", {"default": False}),
+                "chroma_key_color": (["Black", "White", "Green"], {"default": "Black"}),
                 "postprocess_strength": ("FLOAT", {
                     "default": 0.0,
                     "min": 0.0,
@@ -77,7 +78,7 @@ class GFrbmg2:
         }
 
     RETURN_TYPES = ("IMAGE", "IMAGE", "MASK")
-    RETURN_NAMES = ("image_rgba", "image_black", "mask")
+    RETURN_NAMES = ("image_rgba", "image", "mask")
     FUNCTION = "remove_background"
     CATEGORY = "🐵 GorillaFrame/Image"
 
@@ -186,7 +187,7 @@ class GFrbmg2:
             self.model = BEN2.BEN_Base().to(device).eval()
             self.model.loadcheckpoints(model_checkpoint_path)
 
-    def remove_background(self, image, model_choice, invert_mask, postprocess_strength, edge_enhancement, blur_edges, expand_mask):
+    def remove_background(self, image, model_choice, invert_mask, chroma_key_color, postprocess_strength, edge_enhancement, blur_edges, expand_mask):
         self.initialize_model(model_choice)
 
         processed_images = []
@@ -227,12 +228,17 @@ class GFrbmg2:
                 rgba_image = orig_image.copy()
                 rgba_image.putalpha(mask_pil)
 
-                # Black background image
-                black_image = Image.new('RGB', orig_image.size, (0, 0, 0))
-                black_image.paste(orig_image, mask=mask_pil)
+                # Background image
+                background_color_value = {
+                    "Black": (0, 0, 0),
+                    "White": (255, 255, 255),
+                    "Green": (0, 255, 0)
+                }[chroma_key_color]
+                background_image = Image.new('RGB', orig_image.size, background_color_value)
+                background_image.paste(orig_image, mask=mask_pil)
 
                 processed_images.append(pil2tensor(rgba_image))
-                processed_blacks.append(pil2tensor(black_image))
+                processed_blacks.append(pil2tensor(background_image))
                 processed_masks.append(pil2tensor(mask_pil))
 
             elif model_choice == "BEN2":
@@ -257,12 +263,17 @@ class GFrbmg2:
                 rgba_image = orig_image.copy()
                 rgba_image.putalpha(mask_pil)
 
-                # Black background image
-                black_image = Image.new('RGB', orig_image.size, (0, 0, 0))
-                black_image.paste(orig_image, mask=mask_pil)
+                # Background image
+                background_color_value = {
+                    "Black": (0, 0, 0),
+                    "White": (255, 255, 255),
+                    "Green": (0, 255, 0)
+                }[chroma_key_color]
+                background_image = Image.new('RGB', orig_image.size, background_color_value)
+                background_image.paste(orig_image, mask=mask_pil)
 
                 processed_images.append(pil2tensor(rgba_image))
-                processed_blacks.append(pil2tensor(black_image))
+                processed_blacks.append(pil2tensor(background_image))
                 processed_masks.append(pil2tensor(mask_pil))
 
         new_images = torch.cat(processed_images, dim=0)
