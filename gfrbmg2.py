@@ -10,7 +10,7 @@ from torchvision.transforms.functional import normalize
 import numpy as np
 import cv2
 import subprocess
-import torch.nn.functional as F  # Добавьте эту строку
+import torch.nn.functional as F
 
 script_directory = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(script_directory)
@@ -212,7 +212,7 @@ class GFrbmg2:
                     result = self.model(im_tensor)[-1].sigmoid().cpu()
 
                 result = result[0].squeeze()
-                result = F.interpolate(result.unsqueeze(0).unsqueeze(0), size=(h, w), mode='bilinear').squeeze()
+                result = F.interpolate(result.unsqueeze(0).unsqueeze(0), size=(h, w), mode='bilinear', align_corners=True).squeeze()
 
                 mask_pil = tensor2pil(result)
                 # Чистка маски с учетом всех параметров
