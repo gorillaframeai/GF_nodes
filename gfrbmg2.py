@@ -77,8 +77,8 @@ class GFrbmg2:
             }
         }
 
-    RETURN_TYPES = ("IMAGE", "IMAGE", "MASK")
-    RETURN_NAMES = ("image_rgba", "image", "mask")
+    RETURN_TYPES = ("IMAGE", "IMAGE", "IMAGE", "MASK")
+    RETURN_NAMES = ("image_rgba", "image", "mask_rgb", "mask")
     FUNCTION = "remove_background"
     CATEGORY = "🐵 GorillaFrame/Image"
 
@@ -193,6 +193,7 @@ class GFrbmg2:
         processed_images = []
         processed_blacks = []
         processed_masks = []
+        processed_masks_rgb = []
 
         for img in image:
             orig_image = tensor2pil(img)
@@ -237,9 +238,14 @@ class GFrbmg2:
                 background_image = Image.new('RGB', orig_image.size, background_color_value)
                 background_image.paste(orig_image, mask=mask_pil)
 
+                # Prepare mask RGB
+                mask_rgb = Image.new('RGB', orig_image.size, (0, 0, 0))
+                mask_rgb.paste(Image.fromarray(np.array(mask_pil).astype(np.uint8)), mask=mask_pil)
+
                 processed_images.append(pil2tensor(rgba_image))
                 processed_blacks.append(pil2tensor(background_image))
                 processed_masks.append(pil2tensor(mask_pil))
+                processed_masks_rgb.append(pil2tensor(mask_rgb))
 
             elif model_choice == "BEN2":
                 foreground = self.model.inference(orig_image)
@@ -272,12 +278,18 @@ class GFrbmg2:
                 background_image = Image.new('RGB', orig_image.size, background_color_value)
                 background_image.paste(orig_image, mask=mask_pil)
 
+                # Prepare mask RGB
+                mask_rgb = Image.new('RGB', orig_image.size, (0, 0, 0))
+                mask_rgb.paste(Image.fromarray(np.array(mask_pil).astype(np.uint8)), mask=mask_pil)
+
                 processed_images.append(pil2tensor(rgba_image))
                 processed_blacks.append(pil2tensor(background_image))
                 processed_masks.append(pil2tensor(mask_pil))
+                processed_masks_rgb.append(pil2tensor(mask_rgb))
 
         new_images = torch.cat(processed_images, dim=0)
         new_blacks = torch.cat(processed_blacks, dim=0)
         new_masks = torch.cat(processed_masks, dim=0)
+        new_masks_rgb = torch.cat(processed_masks_rgb, dim=0)
 
-        return new_images, new_blacks, new_masks
+        return new_images, new_blacks, new_masks_rgb, new_masks
