@@ -1,6 +1,7 @@
 # RMBG-2.0 Background Removal Node for ComfyUI
 
-This custom node for ComfyUI provides advanced background removal capabilities using the briaai/RMBG-2.0 model. It is designed to seamlessly integrate into the ComfyUI environment, offering users a powerful tool for image processing tasks.
+This custom node for ComfyUI provides advanced background removal capabilities using the briaai/RMBG-2.0 model and BEN2: Background Erase Network. 
+It is designed to seamlessly integrate into the ComfyUI environment, offering users a powerful tool for image processing tasks.
 
 **Node name:** GFrbmg2  
 **Author:** GorillaFrame
@@ -19,11 +20,12 @@ This custom node for ComfyUI provides advanced background removal capabilities u
 ### Required Directory Structure
 ```
 ComfyUI/
-├── models/
+├── models/RMBG-2.0
 │   └── RMBG-2.0/  # Model files
 │       ├── config.json
 │       ├── model.safetensors (≈1.5GB)
 │       └── other files...
+│   └── BEN2/  # Model files
 └── custom_nodes/
     └── GF_nodes/
         ├── gfrbmg2.py  # Node implementation
@@ -39,14 +41,6 @@ ComfyUI/
    git clone https://github.com/gorillaframeai/GF_nodes.git
    ```
 
-2. **Download the RMBG-2.0 Model:**
-
-   Navigate to the models directory and clone the model repository:
-   ```bash
-   cd ComfyUI/models
-   git clone https://huggingface.co/briaai/RMBG-2.0
-   ```
-
 
 ## Requirements
 - CUDA-compatible GPU (recommended)
@@ -59,4 +53,6 @@ ComfyUI/
 
 ## Credits
 - Original model: [briaai/RMBG-2.0](https://huggingface.co/briaai/RMBG-2.0)
+- Original model: [BEN2: Background Erase Network](https://huggingface.co/PramaLLC/BEN2)
+
 - Node implementation: @GorillaFrame 🐵
