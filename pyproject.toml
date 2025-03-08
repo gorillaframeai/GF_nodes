@@ -1,6 +1,6 @@
 [project]
 name = "RMBG-2.0"
-description = "🐵 GF Remove Background 2.0"
+description = "GF Remove Background 2.0"
 version = "1.2"
 license = { file = "LICENSE" }
 
@@ -11,4 +11,4 @@ Repository = "https://github.com/gorillaframeai/GF_nodes"
 [tool.comfy]
 PublisherId = "GorillaFrame"
 DisplayName = "GF"
-Icon = "🐵"
+Icon = ""
