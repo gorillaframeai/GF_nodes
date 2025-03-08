@@ -1,18 +1,14 @@
 [project]
-name = "GFrbmg2"
-description = "A project for background removal using GFrbmg2 and BEN2 models"
-version = "1.0.0"
-license = { text = "MIT" }
-dependencies = [
-    "einops>=0.3.0",
-    "timm>=0.4.12",
-    "Pillow>=8.4.0",
-]
+name = "RMBG-2.0"
+description = "🐵 GF Remove Background 2.0"
+version = "1.2"
+license = { file = "LICENSE" }
 
 [project.urls]
 Repository = "https://github.com/gorillaframeai/GF_nodes"
+#  Used by Comfy Registry https://comfyregistry.org
 
 [tool.comfy]
 PublisherId = "GorillaFrame"
-DisplayName = "GF Remove Background 2.0"
+DisplayName = "GF"
 Icon = "🐵"
