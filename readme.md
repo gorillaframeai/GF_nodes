@@ -52,7 +52,9 @@ ComfyUI/
 4. Get outputs: image_rgba (transparent background), mask, and image_black (black background)
 
 ## Credits
-- Original model: [briaai/RMBG-2.0](https://huggingface.co/briaai/RMBG-2.0)
-- Original model: [BEN2: Background Erase Network](https://huggingface.co/PramaLLC/BEN2)
+- Original model: [briaai/RMBG-2.0](https://huggingface.co/briaai/RMBG-2.0)  
+Original model: briaai/RMBG-2.0 — [License: CC BY-NC 4.0] (https://creativecommons.org/licenses/by-nc/4.0/deed.en)
+(Creative Commons Attribution-NonCommercial 4.0 International). Note: Use only for non-commercial purposes with proper attribution.
+
 
 - Node implementation: @GorillaFrame 🐵
