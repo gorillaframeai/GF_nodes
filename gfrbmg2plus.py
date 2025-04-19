@@ -81,14 +81,14 @@ class GFrbmg2Plus:
             os.makedirs(model_path, exist_ok=True)
         
         api = HfApi()
-        files = api.list_repo_files("briaai/RMBG-2.0")
+        files = api.list_repo_files("1038lab/RMBG-2.0")
         
         for file in files:
             if '/' not in file:
                 if file.endswith(('.json', '.py', '.safetensors')):
                     print(f"Downloading {file}...")
                     hf_hub_download(
-                        repo_id="briaai/RMBG-2.0",
+                        repo_id="1038lab/RMBG-2.0",
                         filename=file,
                         local_dir=model_path
                     )
