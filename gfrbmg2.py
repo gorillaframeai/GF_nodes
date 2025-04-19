@@ -41,7 +41,7 @@ class GFrbmg2:
             
             # Получаем список всех файлов в репозитории
             api = HfApi()
-            files = api.list_repo_files("1038lab/RMBG-2.0")
+            files = api.list_repo_files("briaai/RMBG-2.0")
             
             # Скачиваем только файлы из корневой директории
             for file in files:
@@ -50,7 +50,7 @@ class GFrbmg2:
                     if file.endswith(('.json', '.py', '.safetensors')):
                         print(f"Downloading {file}...")
                         hf_hub_download(
-                            repo_id="1038lab/RMBG-2.0",
+                            repo_id="briaai/RMBG-2.0",
                             filename=file,
                             local_dir=self.model_path
                         )
